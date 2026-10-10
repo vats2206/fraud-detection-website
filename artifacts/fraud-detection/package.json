@@ -1,0 +1,11 @@
+{
+  "name": "@workspace/fraud-detection",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bash scripts/dev-replit.sh",
+    "build": "mvn -B -DskipTests package",
+    "typecheck": "mvn -B test"
+  }
+}

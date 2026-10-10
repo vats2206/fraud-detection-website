@@ -1,0 +1,13 @@
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/FraudDetectionApplication.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/api/ApiDtos.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/api/ApiException.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/api/ApiExceptionHandler.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/api/AuthController.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/api/DashboardController.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/api/TransactionController.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/model/AppUser.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/model/TransactionRecord.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/repository/TransactionRepository.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/repository/UserRepository.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/service/AuthService.java
+/home/runner/workspace/artifacts/fraud-detection/src/main/java/com/clearline/fraud/service/RiskScoringService.java

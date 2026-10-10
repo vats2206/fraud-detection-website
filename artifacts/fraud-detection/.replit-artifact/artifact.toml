@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Fraud Detection Dashboard"
+description = "A beginner-friendly transaction fraud checker with rule-based risk scoring, account registration and login, and MySQL-backed transaction history."
+version = "1.0.0"
+id = "artifacts/fraud-detection"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23665
+
+[services.development]
+run = "pnpm --filter @workspace/fraud-detection run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/fraud-detection", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/fraud-detection/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23665"
+BASE_PATH = "/"

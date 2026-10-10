@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7f5">
+  <meta name="description" content="A clear, approachable way to review payment risk.">
+  <title>Clearline — Payment risk, made understandable</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div id="app" class="app-shell">
+    <section id="authView" class="auth-view" hidden>
+      <div class="auth-brand">
+        <a class="brand" href="#" aria-label="Clearline home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>clearline</span>
+        </a>
+        <div class="auth-hero">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> PAYMENT SAFETY, MADE CLEAR</div>
+          <h1>Good decisions<br>start with <em>clarity.</em></h1>
+          <p>Understand what makes a payment risky, without needing to be a fraud expert.</p>
+          <div class="assurance">
+            <span class="assurance-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5 19 6v5.5c0 4.4-2.9 7.6-7 9-4.1-1.4-7-4.6-7-9V6l7-2.5Z" stroke="currentColor" stroke-width="1.6"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span><strong>Rules you can understand</strong><small>Every decision comes with a clear explanation.</small></span>
+          </div>
+        </div>
+        <div class="auth-footnote">A calmer way to keep an eye on every payment.</div>
+      </div>
+
+      <div class="auth-panel-wrap">
+        <div class="auth-panel">
+          <div class="auth-panel-top">
+            <div class="mobile-brand">
+              <a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>clearline</span></a>
+            </div>
+            <span class="secure-label"><span class="lock-icon" aria-hidden="true"></span> Secure account</span>
+          </div>
+          <div class="auth-heading">
+            <div class="auth-step">YOUR WORKSPACE</div>
+            <h2 id="authTitle">Welcome back</h2>
+            <p id="authSubtitle">Sign in to review your payment activity.</p>
+          </div>
+          <div class="auth-tabs" role="tablist" aria-label="Account access">
+            <button class="auth-tab active" id="loginTab" type="button" role="tab" aria-selected="true">Sign in</button>
+            <button class="auth-tab" id="registerTab" type="button" role="tab" aria-selected="false">Create account</button>
+          </div>
+          <form id="authForm" novalidate>
+            <label class="field" id="nameField" hidden>
+              <span>Your name</span>
+              <input id="authName" name="name" type="text" autocomplete="name" placeholder="e.g. Alex Morgan" maxlength="100">
+              <span class="field-error" data-error="name"></span>
+            </label>
+            <label class="field">
+              <span>Email address</span>
+              <input id="authEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="254">
+              <span class="field-error" data-error="email"></span>
+            </label>
+            <label class="field">
+              <span>Password</span>
+              <input id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="8">
+              <span class="field-error" data-error="password"></span>
+            </label>
+            <div id="authError" class="form-alert" role="alert" hidden></div>
+            <button id="authSubmit" class="button button-primary auth-submit" type="submit">
+              <span class="button-label">Sign in</span><span class="button-arrow" aria-hidden="true">→</span>
+              <span class="button-spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+          <p class="auth-legal">By continuing, you agree to use Clearline responsibly to review payment activity.</p>
+        </div>
+        <div class="auth-bottom-note"><span class="tiny-shield" aria-hidden="true"></span> Your payment data stays in your workspace.</div>
+      </div>
+    </section>
+
+    <section id="dashboardView" class="dashboard-view" hidden>
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Clearline dashboard">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>clearline</span>
+        </a>
+        <div class="topbar-right">
+          <div class="workspace-label"><span class="workspace-dot"></span> PERSONAL WORKSPACE</div>
+          <div class="user-menu">
+            <div class="user-avatar" id="userInitials" aria-hidden="true">CL</div>
+            <span class="user-name" id="userName">Account</span>
+            <button id="logoutButton" class="text-button" type="button">Sign out</button>
+          </div>
+        </div>
+      </header>
+      <main class="dashboard-main">
+        <div class="page-intro">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR PAYMENT OVERVIEW</div>
+            <h1>Make every payment decision <em>clear.</em></h1>
+            <p>Check a payment against simple rules and see exactly what shaped the result.</p>
+          </div>
+          <div class="intro-aside"><span class="intro-aside-mark" aria-hidden="true">01</span><span>Review<br><strong>with confidence</strong></span></div>
+        </div>
+
+        <div id="dashboardAlert" class="page-alert" role="alert" hidden></div>
+
+        <section class="stats-grid" aria-label="Transaction overview">
+          <article class="stat-card stat-total">
+            <div class="stat-topline"><span class="stat-label">All payments</span><span class="stat-symbol symbol-total" aria-hidden="true">↗</span></div>
+            <div class="stat-value" id="totalTransactions">—</div>
+            <div class="stat-caption">Reviewed in this workspace</div>
+            <div class="stat-rule"></div>
+          </article>
+          <article class="stat-card stat-approved">
+            <div class="stat-topline"><span class="stat-label">Approved</span><span class="stat-symbol symbol-approved" aria-hidden="true">✓</span></div>
+            <div class="stat-value" id="approvedCount">—</div>
+            <div class="stat-caption">Low risk, ready to proceed</div>
+            <div class="stat-rule"></div>
+          </article>
+          <article class="stat-card stat-flagged">
+            <div class="stat-topline"><span class="stat-label">Flagged</span><span class="stat-symbol symbol-flagged" aria-hidden="true">!</span></div>
+            <div class="stat-value" id="flaggedCount">—</div>
+            <div class="stat-caption">Worth a closer look</div>
+            <div class="stat-rule"></div>
+          </article>
+          <article class="stat-card stat-blocked">
+            <div class="stat-topline"><span class="stat-label">Blocked</span><span class="stat-symbol symbol-blocked" aria-hidden="true">×</span></div>
+            <div class="stat-value" id="blockedCount">—</div>
+            <div class="stat-caption">High risk under your rules</div>
+            <div class="stat-rule"></div>
+          </article>
+          <article class="stat-card stat-score">
+            <div class="stat-topline"><span class="stat-label">Average risk</span><span class="stat-symbol symbol-score" aria-hidden="true"><span></span></span></div>
+            <div class="stat-value"><span id="averageRiskScore">—</span><small>/ 100</small></div>
+            <div class="stat-caption">Across reviewed payments</div>
+            <div class="stat-rule"></div>
+          </article>
+        </section>
+
+        <div class="content-grid">
+          <section class="panel check-panel" aria-labelledby="checkTitle">
+            <div class="panel-heading">
+              <div>
+                <div class="section-kicker">NEW REVIEW <span>01</span></div>
+                <h2 id="checkTitle">Check a payment</h2>
+                <p>Enter the details to understand its risk.</p>
+              </div>
+              <span class="heading-mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none"><path d="M16 4 26 8v7.8c0 6.3-4.2 10.8-10 12.8-5.8-2-10-6.5-10-12.8V8l10-4Z" stroke="currentColor" stroke-width="1.6"/><path d="m12.5 16 2.4 2.4 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <form id="paymentForm" novalidate>
+              <div class="form-grid">
+                <label class="field">
+                  <span>Payment amount</span>
+                  <span class="input-affix"><span aria-hidden="true">$</span><input id="amount" name="amount" type="number" min="0.01" max="100000000" step="0.01" placeholder="0.00" required></span>
+                  <span class="field-error" data-error="amount"></span>
+                </label>
+                <label class="field">
+                  <span>Payment location</span>
+                  <input id="location" name="location" type="text" placeholder="City or region" maxlength="120" required>
+                  <span class="field-error" data-error="location"></span>
+                </label>
+                <label class="field">
+                  <span>Device</span>
+                  <select id="device" name="device" required>
+                    <option value="" disabled selected>Select a device</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Desktop">Desktop</option>
+                    <option value="Tablet">Tablet</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <span class="field-error" data-error="device"></span>
+                </label>
+                <label class="field">
+                  <span>Payment time</span>
+                  <input id="paymentTime" name="time" type="datetime-local" required>
+                  <span class="field-error" data-error="time"></span>
+                </label>
+                <label class="field field-full">
+                  <span>Recent payment frequency</span>
+                  <span class="select-wrap">
+                    <select id="frequency" name="frequency" required>
+                      <option value="" disabled selected>Select how often</option>
+                      <option value="1">Once in the last hour</option>
+                      <option value="3">A few times in the last hour</option>
+                      <option value="6">Several times in the last hour</option>
+                      <option value="10">Many times in the last hour</option>
+                    </select>
+                  </span>
+                  <span class="field-hint">How many times has this customer paid in the last hour?</span>
+                  <span class="field-error" data-error="frequency"></span>
+                </label>
+              </div>
+              <div id="paymentError" class="form-alert" role="alert" hidden></div>
+              <button id="paymentSubmit" class="button button-primary payment-submit" type="submit">
+                <span class="button-label">Review payment</span><span class="button-arrow" aria-hidden="true">→</span>
+                <span class="button-spinner" aria-hidden="true"></span>
+              </button>
+              <div class="form-assurance"><span class="tiny-shield" aria-hidden="true"></span> Your review is saved to your transaction history.</div>
+            </form>
+            <section id="decisionResult" class="decision-result" aria-live="polite" hidden></section>
+          </section>
+
+          <section class="panel history-panel" aria-labelledby="historyTitle">
+            <div class="panel-heading history-heading">
+              <div>
+                <div class="section-kicker">RECENT ACTIVITY <span>02</span></div>
+                <h2 id="historyTitle">Payment history</h2>
+                <p>Your saved payment reviews, newest first.</p>
+              </div>
+              <span class="history-count" id="historyCount">0</span>
+            </div>
+            <div id="historyContent" class="history-content" aria-live="polite">
+              <div class="history-loading" aria-label="Loading payment history">
+                <div class="skeleton-line w-65"></div><div class="skeleton-line w-95"></div><div class="skeleton-line w-80"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <footer class="dashboard-footer"><span class="footer-mark" aria-hidden="true"></span> Clearline <span class="footer-divider">/</span> Thoughtful payment reviews, one at a time.</footer>
+      </main>
+    </section>
+    <div id="screenLoader" class="screen-loader" role="status" aria-label="Loading account">
+      <span class="loader-mark"><span></span><span></span><span></span></span>
+      <span>Getting your workspace ready</span>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
